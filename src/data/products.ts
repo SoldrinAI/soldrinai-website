@@ -51,6 +51,35 @@ export const products: Product[] = [
     },
   },
   {
+    slug: "rag-chatbot",
+    name: "RAG Chatbot",
+    tagline: "Chat with your own documents, privately.",
+    image: "/images/rag-chatbot-chat.png",
+    description:
+      "Upload a PDF, Word, Excel, CSV or text file and ask questions in plain words. SoldrinAI finds the right passages, and a small AI model runs right in your browser to answer, so your documents are never stored.",
+    highlights: [
+      "PDF, Word, Excel, CSV, TXT and Markdown, up to 4 MB",
+      "Finds passages by meaning and by exact term, then cites its sources",
+      "The AI model runs on your device: nothing to install, delete it any time",
+      "Pick from five models, from a 230 MB quick start to a 1.8 GB high-accuracy option",
+    ],
+    steps: [
+      { title: "Upload", body: "Drop in a document. Spreadsheets are read one row at a time; long documents are split by topic." },
+      { title: "Choose a model", body: "Pick a model size. Smaller loads faster, larger answers more accurately. The download happens once." },
+      { title: "Ask", body: "Ask in your own words and get a short answer with the source passages underneath." },
+    ],
+    status: "Live",
+    links: [
+      { label: "Try it live", href: "https://soldrinai-rag-chatbot.vercel.app/" },
+      { label: "Source code", href: "https://github.com/SoldrinAI/SoldrinAI-rag-chatbot" },
+    ],
+    demo: {
+      kind: "image",
+      src: "/images/rag-chatbot-setup.png",
+      caption: "Upload a file, choose a model, then ask questions. Answer quality depends on the model you pick.",
+    },
+  },
+  {
     slug: "kaanan",
     name: "Kaanan",
     tagline: "Security testing that reads your code like an attacker.",
