@@ -486,3 +486,38 @@ footer { border-top: 1px solid var(--line); padding: 40px 0 28px; color: var(--s
   .edu-slider { padding: 16px 12px 8px; }
   .tl-card { padding: 20px; }
 }
+
+/* ─── Testimonials ──────────────────────────────────────────────────────── */
+.testimonial-slider {
+  padding: 24px 20px 8px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.testimonial-card {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 36px 40px;
+  height: 100%;
+}
+.tq-quote {
+  font-size: 1.15rem;
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 0 0 20px;
+  font-style: normal;
+  position: relative;
+  padding-left: 20px;
+}
+.tq-quote::before {
+  content: "\201C";
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-size: 2rem;
+  color: var(--cyan);
+  line-height: 1;
+}
+.tq-meta { display: flex; flex-direction: column; gap: 2px; }
+.tq-meta strong { font-weight: 600; }
+.tq-meta span { color: var(--sub); font-size: .9rem; }

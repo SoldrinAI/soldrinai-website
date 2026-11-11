@@ -4,6 +4,31 @@ import { SkillLogo } from "../components/Visuals";
 import { Slider } from "../components/Slider";
 import { PageHead } from "./Contact";
 
+/** Testimonial/quote slider – hidden when site.testimonials is empty.
+ *  To activate: add entries to site.testimonials in src/data/site.ts */
+export function TestimonialSlider() {
+  const items = site.testimonials;
+  if (!items || items.length === 0) return null;
+  return (
+    <section>
+      <div className="wrap">
+        <Reveal><h2 className="center">What people say</h2></Reveal>
+      </div>
+      <Slider label="Testimonials" autoplay loop dots arrows gap={24} className="testimonial-slider">
+        {items.map((t) => (
+          <div key={t.name} className="testimonial-card">
+            <blockquote className="tq-quote">"{t.quote}"</blockquote>
+            <div className="tq-meta">
+              <strong>{t.name}</strong>
+              <span>{t.role}</span>
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </section>
+  );
+}
+
 export default function About() {
   const { about, pages } = site;
   return (
@@ -79,6 +104,9 @@ export default function About() {
         <div className="wrap"><Reveal><h2>{about.skillsTitle}</h2></Reveal></div>
         <Marquee items={about.skills.map((k) => ({ label: k.name, icon: <SkillLogo logo={k.logo} /> }))} />
       </section>
+
+      {/* ── Testimonials (hidden when empty) ─────────────────────────────── */}
+      <TestimonialSlider />
     </>
   );
 }
