@@ -17,9 +17,9 @@ export const site = {
   ],
   hero: {
     lead: "AI that",
-    words: ["finds the answer", "speaks your language", "spots the problem", "protects your code", "powers your Smart TV"],
+    words: ["finds the answer", "speaks your language", "spots the problem", "protects your code", "answers from your documents", "powers your Smart TV"],
     subtitle:
-      "I design and ship production AI products, modern websites, and 10-foot Smart TV interfaces: natural search that understands intent, code security scanners, analytics you can talk to, and TV launchers built for the remote.",
+      "I design and ship production AI products, modern websites, and 10-foot Smart TV interfaces: natural search that understands intent, a chatbot that answers from your own documents, code security scanners, analytics you can talk to, and TV launchers built for the remote.",
     primaryCta: { label: "Explore products", to: "/products" },
     secondaryCta: { label: "Work with me", to: "/contact" },
     cards: [
@@ -68,6 +68,14 @@ export const site = {
       cta: { label: "Try Smart Search", to: "/products/smart-search" },
       visual: "search-demo",
       image: "/images/smartsearch-ui.png",
+    },
+    {
+      pill: "Live application",
+      headline: "Chat with your own documents, privately",
+      body: "Upload a PDF, Word, Excel, CSV or text file and ask questions in plain words. The AI model runs in your browser, so your files are never stored. Choose the model size that suits you.",
+      cta: { label: "Explore RAG Chatbot", to: "/products/rag-chatbot" },
+      visual: "rag-demo",
+      image: "/images/rag-chatbot-chat.png",
     },
     {
       pill: "Open source CLI",

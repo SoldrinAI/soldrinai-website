@@ -224,6 +224,12 @@ export function HeroSlideVisual({ visual, image, alt }: { visual: string; image?
             <span>"red SUV under 15 lakh" · <b>98% match</b></span>
           </div>
         )}
+        {visual === "rag-demo" && (
+          <div className="artwork-floating-badge badge-search">
+            <CapIcon name="chat" size={16} />
+            <span>Answers from your files · <b>runs in your browser</b></span>
+          </div>
+        )}
         {visual === "kaanan-demo" && (
           <div className="artwork-floating-badge badge-security">
             <CapIcon name="security" size={16} />
