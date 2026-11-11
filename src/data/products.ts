@@ -14,6 +14,7 @@ export interface Product {
   status: "Live" | "Open source" | "Coming soon";
   links: { label: string; href: string }[];
   demo: Demo;
+  image?: string;
 }
 
 export const products: Product[] = [
@@ -21,6 +22,7 @@ export const products: Product[] = [
     slug: "smart-search",
     name: "Smart Search",
     tagline: "Search your spreadsheet like you'd ask a colleague.",
+    image: "/images/hero-search.jpg",
     description:
       "Upload a CSV or Excel file and find the right rows in plain language. It understands what you mean and still catches exact terms, so nothing slips through.",
     highlights: [
@@ -51,6 +53,7 @@ export const products: Product[] = [
     slug: "kaanan",
     name: "Kaanan",
     tagline: "Security testing that reads your code like an attacker.",
+    image: "/images/hero-security.jpg",
     description:
       "An open-source command-line tool that scans your code and running apps for vulnerabilities, and explains what to fix first.",
     highlights: [

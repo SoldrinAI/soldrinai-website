@@ -199,7 +199,40 @@ export function CtaArt() {
 }
 
 /** Dispatch the right visual for each hero slide. */
-export function HeroSlideVisual({ visual }: { visual: string }) {
+export function HeroSlideVisual({ visual, image, alt }: { visual: string; image?: string; alt?: string }) {
+  if (image) {
+    return (
+      <div className="hero-artwork-card">
+        <div className="hero-artwork-media">
+          <img src={image} alt={alt || "SoldrinAI visual"} className="hero-artwork-img" loading="eager" />
+        </div>
+        {visual === "search-demo" && (
+          <div className="artwork-floating-badge badge-search">
+            <CapIcon name="search" size={16} />
+            <span>"red SUV under 15 lakh" · <b>98% match</b></span>
+          </div>
+        )}
+        {visual === "kaanan-demo" && (
+          <div className="artwork-floating-badge badge-security">
+            <CapIcon name="security" size={16} />
+            <span>Security audit · <b>0 vulnerabilities</b></span>
+          </div>
+        )}
+        {visual === "hero-network" && (
+          <div className="artwork-floating-badge badge-network">
+            <CapIcon name="layers" size={16} />
+            <span>57 systems in production</span>
+          </div>
+        )}
+        {visual === "cta-art" && (
+          <div className="artwork-floating-badge badge-collab">
+            <CapIcon name="chat" size={16} />
+            <span>Consulting & Deployment</span>
+          </div>
+        )}
+      </div>
+    );
+  }
   if (visual === "search-demo") return <ProductDemo demo={products[0].demo} />;
   if (visual === "kaanan-demo") return <ProductDemo demo={products[1].demo} />;
   if (visual === "hero-network") return <HeroVisual />;

@@ -67,6 +67,7 @@ export const site = {
       body: "Smart Search understands intent, not just keywords. Ask for \"red SUV under 15 lakh\" and get ranked results in seconds.",
       cta: { label: "Try Smart Search", to: "/products/smart-search" },
       visual: "search-demo",
+      image: "/images/hero-search.jpg",
     },
     {
       pill: "Open source",
@@ -74,6 +75,7 @@ export const site = {
       body: "Kaanan scans code and running apps for vulnerabilities and explains what to fix first. One pip install away.",
       cta: { label: "See Kaanan", to: "/products/kaanan" },
       visual: "kaanan-demo",
+      image: "/images/hero-security.jpg",
     },
     {
       pill: "What I build",
@@ -81,6 +83,7 @@ export const site = {
       body: "From hybrid search to voice agents, computer vision to agentic pipelines — I design, build and ship AI that works.",
       cta: { label: "Explore my work", to: "/work" },
       visual: "hero-network",
+      image: "/images/hero-systems.jpg",
     },
     {
       pill: "Work with me",
@@ -88,6 +91,7 @@ export const site = {
       body: "I work with businesses across automotive, finance, industrial and consumer electronics. Tell me what you need.",
       cta: { label: "Start a conversation", to: "/contact" },
       visual: "cta-art",
+      image: "/images/hero-collab.jpg",
     },
   ],
 

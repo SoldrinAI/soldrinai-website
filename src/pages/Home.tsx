@@ -43,7 +43,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="hero-visual-wrap">
-                <HeroSlideVisual visual={slide.visual} />
+                <HeroSlideVisual visual={slide.visual} image={slide.image} alt={slide.headline} />
               </div>
             </div>
           </div>
@@ -111,6 +111,11 @@ export default function Home() {
         >
           {products.map((x) => (
             <div key={x.slug} className="product-slide-card">
+              {x.image && (
+                <div className="psc-thumb">
+                  <img src={x.image} alt={x.name} loading="lazy" />
+                </div>
+              )}
               <div className="psc-copy">
                 <span className={`pill ${x.status === "Coming soon" ? "warn" : "ok"}`}>{x.status}</span>
                 <h3>{x.name}</h3>

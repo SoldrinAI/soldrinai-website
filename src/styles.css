@@ -393,6 +393,66 @@ footer { border-top: 1px solid var(--line); padding: 40px 0 28px; color: var(--s
   gap: 10px;
 }
 
+/* ─── Hero artwork & badges ─────────────────────────────────────────────── */
+.hero-artwork-card {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 40px rgba(11, 116, 201, 0.08);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.hero-artwork-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(11, 116, 201, 0.14);
+}
+.hero-artwork-media {
+  overflow: hidden;
+  border-radius: 15px;
+  aspect-ratio: 4/3;
+  background: var(--soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-artwork-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.hero-artwork-card:hover .hero-artwork-img {
+  transform: scale(1.03);
+}
+.artwork-floating-badge {
+  position: absolute;
+  bottom: -12px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  padding: 8px 16px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  color: var(--ink);
+  box-shadow: 0 8px 24px rgba(15, 23, 34, 0.1);
+  animation: rise 0.5s var(--ease) both;
+}
+.artwork-floating-badge .icon {
+  color: var(--blue);
+  flex-shrink: 0;
+}
+.artwork-floating-badge b {
+  color: var(--blue);
+}
+
 /* ─── Home products slider ──────────────────────────────────────────────── */
 .products-slider {
   padding: 24px 20px 8px;
@@ -403,17 +463,43 @@ footer { border-top: 1px solid var(--line); padding: 40px 0 28px; color: var(--s
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 32px;
+  padding: 24px;
   height: 100%;
-  transition: border-color .3s, box-shadow .3s;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .3s, box-shadow .3s, transform .3s var(--ease);
 }
 .product-slide-card:hover {
   border-color: #b9d9f2;
-  box-shadow: 0 8px 24px rgba(11,116,201,.1);
+  box-shadow: 0 12px 28px rgba(11,116,201,.12);
+  transform: translateY(-3px);
 }
-.psc-copy .pill { margin-bottom: 10px; }
-.psc-copy h3 { font-size: 1.5rem; margin: 6px 0; }
-.psc-copy .cta { margin-top: 20px; }
+.psc-thumb {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  margin-bottom: 16px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+}
+.psc-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease);
+}
+.product-slide-card:hover .psc-thumb img {
+  transform: scale(1.04);
+}
+.psc-copy {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.psc-copy .pill { margin-bottom: 10px; align-self: flex-start; }
+.psc-copy h3 { font-size: 1.4rem; margin: 6px 0; }
+.psc-copy .cta { margin-top: auto; padding-top: 16px; }
 
 /* ─── Products page hero slider ─────────────────────────────────────────── */
 .product-hero-slider { margin-bottom: 0; }

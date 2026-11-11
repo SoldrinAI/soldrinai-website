@@ -41,7 +41,15 @@ export function Products() {
                   </div>
                 </div>
                 <div className="php-visual">
-                  <ProductDemo demo={x.demo} />
+                  {x.image ? (
+                    <div className="hero-artwork-card">
+                      <div className="hero-artwork-media">
+                        <img src={x.image} alt={x.name} className="hero-artwork-img" loading="eager" />
+                      </div>
+                    </div>
+                  ) : (
+                    <ProductDemo demo={x.demo} />
+                  )}
                 </div>
               </div>
             </div>
