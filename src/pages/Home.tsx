@@ -1,62 +1,79 @@
 import { Link } from "react-router-dom";
 import { site, capabilities } from "../data/site";
 import { products } from "../data/products";
-import { CountUp, Marquee, Reveal, RotatingWord } from "../components/Motion";
-import { CapIcon, HeroVisual, ProductDemo } from "../components/Visuals";
+import { CountUp, Marquee, Reveal } from "../components/Motion";
+import { CapIcon, HeroSlideVisual } from "../components/Visuals";
+import { Slider } from "../components/Slider";
 
 export default function Home() {
-  const { hero, stats, industries, home } = site;
-  const featured = products[0];
+  const { stats, industries, home, heroSlides } = site;
+
   return (
     <>
-      <section className="hero dots">
-        <div className="wrap hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">{site.tagline}</p>
-            <h1>{hero.lead}<br /><RotatingWord words={hero.words} /></h1>
-            <p className="lead">{hero.subtitle}</p>
-            <div className="cta">
-              <Link className="btn" to={hero.primaryCta.to}>{hero.primaryCta.label}</Link>
-              <Link className="btn ghost" to={hero.secondaryCta.to}>{hero.secondaryCta.label}</Link>
-            </div>
-            <div className="stats">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <strong className="mono"><CountUp to={s.value} prefix={s.prefix} suffix={s.suffix} /></strong>
-                  <span>{s.label}</span>
+      {/* ── Hero Slider ───────────────────────────────────────────────────── */}
+      <Slider
+        label="Hero highlights"
+        autoplay={5000}
+        loop
+        progress
+        arrows
+        dots
+        className="hero-slider"
+      >
+        {heroSlides.map((slide) => (
+          <div key={slide.visual} className="hero-slide dots">
+            <div className="wrap hero-grid">
+              <div className="hero-copy">
+                {slide.pill && <p className="eyebrow">{slide.pill}</p>}
+                <h1>{slide.headline}</h1>
+                <p className="lead">{slide.body}</p>
+                <div className="cta">
+                  <Link className="btn" to={slide.cta.to}>{slide.cta.label}</Link>
+                  <Link className="btn ghost" to="/contact">Work with me</Link>
                 </div>
-              ))}
+                <div className="stats">
+                  {stats.map((s) => (
+                    <div key={s.label}>
+                      <strong className="mono">
+                        <CountUp to={s.value} prefix={s.prefix} suffix={s.suffix} />
+                      </strong>
+                      <span>{s.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="hero-visual-wrap">
+                <HeroSlideVisual visual={slide.visual} />
+              </div>
             </div>
           </div>
-          <HeroVisual />
-        </div>
-      </section>
+        ))}
+      </Slider>
 
       <Marquee items={site.marquee.map((label) => ({ label }))} />
 
-      <section>
-        <div className="wrap split">
-          <Reveal>
-            <p className="eyebrow">{home.featured.eyebrow}</p>
-            <h2>{featured.name}</h2>
-            <p className="tag">{featured.tagline}</p>
-            <p className="muted">{featured.description}</p>
-            <Link className="btn" to={`/products/${featured.slug}`}>{home.featured.cta}</Link>
-          </Reveal>
-          <Reveal delay={150}><ProductDemo demo={featured.demo} /></Reveal>
-        </div>
-      </section>
-
+      {/* ── Capabilities Carousel ─────────────────────────────────────────── */}
       <section className="soft">
         <div className="wrap">
           <Reveal>
             <div className="head-row">
-              <div><h2>{home.rail.title}</h2><p className="muted">{home.rail.sub}</p></div>
+              <div>
+                <h2>{home.rail.title}</h2>
+                <p className="muted">{home.rail.sub}</p>
+              </div>
               <Link className="btn ghost" to="/work">{home.rail.cta}</Link>
             </div>
           </Reveal>
         </div>
-        <div className="rail">
+        <Slider
+          label="Capabilities"
+          slidesPerView={{ sm: 1, md: 2, lg: 3 }}
+          arrows
+          dots
+          gap={20}
+          loop={false}
+          className="caps-slider"
+        >
           {capabilities.map((c) => (
             <Link to="/work" className="rcard" key={c.domain}>
               <span className="ic"><CapIcon name={c.icon} /></span>
@@ -64,13 +81,52 @@ export default function Home() {
               <p>{c.ships}</p>
             </Link>
           ))}
-        </div>
+        </Slider>
         <div className="wrap chips">
           {industries.map((i) => <span key={i} className="chip">{i}</span>)}
         </div>
       </section>
 
+      {/* ── Products Slider ───────────────────────────────────────────────── */}
       <section>
+        <div className="wrap">
+          <Reveal>
+            <div className="head-row">
+              <div>
+                <p className="eyebrow">{home.featured.eyebrow}</p>
+                <h2>Products</h2>
+              </div>
+              <Link className="btn ghost" to="/products">All products</Link>
+            </div>
+          </Reveal>
+        </div>
+        <Slider
+          label="Featured products"
+          slidesPerView={{ sm: 1, md: 1, lg: 2 }}
+          arrows
+          dots
+          gap={32}
+          loop={false}
+          className="products-slider"
+        >
+          {products.map((x) => (
+            <div key={x.slug} className="product-slide-card">
+              <div className="psc-copy">
+                <span className={`pill ${x.status === "Coming soon" ? "warn" : "ok"}`}>{x.status}</span>
+                <h3>{x.name}</h3>
+                <p className="tag">{x.tagline}</p>
+                <p className="muted">{x.description}</p>
+                <div className="cta left">
+                  <Link className="btn" to={`/products/${x.slug}`}>{home.featured.cta}</Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </section>
+
+      {/* ── Process ──────────────────────────────────────────────────────── */}
+      <section className="soft">
         <div className="wrap">
           <Reveal><h2 className="center">{home.process.title}</h2></Reveal>
           <div className="steps">
@@ -85,6 +141,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── CTA Band ─────────────────────────────────────────────────────── */}
       <section className="band">
         <div className="wrap center">
           <Reveal>

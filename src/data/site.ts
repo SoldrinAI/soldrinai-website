@@ -1,4 +1,6 @@
 // All site-wide copy, links and page content live here. Edit this file, not the components.
+// To add a hero slide: append an entry to site.heroSlides.
+// To add a testimonial: append an entry to site.testimonials.
 
 const wa = { number: "919833644917", message: "Hi Yaohan, I found you through your website." };
 const waLink = `https://wa.me/${wa.number}?text=${encodeURIComponent(wa.message)}`;
@@ -53,6 +55,44 @@ export const site = {
     about: { title: "About", sub: "The person behind the products." },
     contact: { title: "Contact", sub: "Open to roles, contracts and consulting." },
   },
+
+  /** Hero slides – one object per slide shown in the full-width home carousel.
+   *  visual: a key that maps to a visual component in Visuals.tsx.
+   *  cta: primary CTA for this slide.
+   *  pill (optional): small eyebrow label above the headline. */
+  heroSlides: [
+    {
+      pill: "Featured product",
+      headline: "Search that gets what you mean",
+      body: "Smart Search understands intent, not just keywords. Ask for \"red SUV under 15 lakh\" and get ranked results in seconds.",
+      cta: { label: "Try Smart Search", to: "/products/smart-search" },
+      visual: "search-demo",
+    },
+    {
+      pill: "Open source",
+      headline: "Security testing that reads your code like an attacker",
+      body: "Kaanan scans code and running apps for vulnerabilities and explains what to fix first. One pip install away.",
+      cta: { label: "See Kaanan", to: "/products/kaanan" },
+      visual: "kaanan-demo",
+    },
+    {
+      pill: "What I build",
+      headline: "AI systems that run in production",
+      body: "From hybrid search to voice agents, computer vision to agentic pipelines — I design, build and ship AI that works.",
+      cta: { label: "Explore my work", to: "/work" },
+      visual: "hero-network",
+    },
+    {
+      pill: "Work with me",
+      headline: "Have a problem AI should solve?",
+      body: "I work with businesses across automotive, finance, industrial and consumer electronics. Tell me what you need.",
+      cta: { label: "Start a conversation", to: "/contact" },
+      visual: "cta-art",
+    },
+  ],
+
+  /** Testimonials – leave empty to hide the section. */
+  testimonials: [] as Array<{ quote: string; name: string; role: string }>,
   about: {
     intro: [
       "I'm Yaohan, an AI product manager and data scientist based in Mumbai. Over 6 years I've moved from business analysis and data operations into building AI that runs in production, from hybrid search and talk-to-your-data analytics to vision, voice and security tools.",

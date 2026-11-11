@@ -3,6 +3,7 @@ import { site } from "../data/site";
 import { products } from "../data/products";
 import { Reveal } from "../components/Motion";
 import { ProductDemo } from "../components/Visuals";
+import { Slider } from "../components/Slider";
 import { PageHead } from "./Contact";
 
 const ext = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
@@ -12,6 +13,43 @@ export function Products() {
   return (
     <>
       <PageHead title={p.title} sub={p.sub} />
+
+      {/* ── Featured products slider ─────────────────────────────────────── */}
+      <section className="soft tight">
+        <Slider
+          label="Featured products"
+          autoplay={6000}
+          loop
+          progress
+          arrows
+          dots
+          gap={0}
+          className="product-hero-slider"
+        >
+          {products.map((x, i) => (
+            <div key={x.slug} className={`product-hero-slide ${i % 2 ? "flip" : ""}`}>
+              <div className="wrap split">
+                <div className="php-copy">
+                  <span className={`pill ${x.status === "Coming soon" ? "warn" : "ok"}`}>{x.status}</span>
+                  <h2>{x.name}</h2>
+                  <p className="tag">{x.tagline}</p>
+                  <p className="muted">{x.description}</p>
+                  <ul className="ticks">{x.highlights.map((h) => <li key={h}>{h}</li>)}</ul>
+                  <div className="cta left">
+                    <Link className="btn" to={`/products/${x.slug}`}>Learn more</Link>
+                    <a className="btn ghost" href={x.links[0].href} {...ext(x.links[0].href)}>{x.links[0].label}</a>
+                  </div>
+                </div>
+                <div className="php-visual">
+                  <ProductDemo demo={x.demo} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </section>
+
+      {/* ── Individual product sections ──────────────────────────────────── */}
       {products.map((x, i) => (
         <section key={x.slug} className={i % 2 ? "soft" : ""}>
           <div className={`wrap split ${i % 2 ? "flip" : ""}`}>

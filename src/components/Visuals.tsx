@@ -2,6 +2,7 @@ import { useEffect, useState, type PointerEvent } from "react";
 import { siPython, siJavascript, siFastapi, siOpenai, siRedis, siMongodb, siDocker, siAmazonwebservices, siStreamlit, siTableau, siWhatsapp } from "simple-icons";
 import { site } from "../data/site";
 import type { Demo } from "../data/products";
+import { products } from "../data/products";
 import { reduced } from "./Motion";
 
 const icons: Record<string, JSX.Element> = {
@@ -145,4 +146,63 @@ function TerminalDemo({ lines }: { lines: Extract<Demo, { kind: "terminal" }>["l
 
 export function ProductDemo({ demo }: { demo: Demo }) {
   return demo.kind === "search" ? <SearchDemo items={demo.items} /> : <TerminalDemo lines={demo.lines} />;
+}
+
+// ─── Hero slide artwork ───────────────────────────────────────────────────────
+
+/** Full-bleed slide art: hero network (existing visual, re-exported for slide use) */
+export { HeroVisual as HeroNetworkArt };
+
+/** Slide art: colourful abstract CTA artwork */
+export function CtaArt() {
+  return (
+    <div className="slide-art" aria-hidden="true">
+      <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+        {/* Background glow */}
+        <radialGradient id="cta-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#12b4f3" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#0b74c9" stopOpacity="0" />
+        </radialGradient>
+        <rect width="480" height="320" fill="url(#cta-glow)" rx="16" />
+
+        {/* Chat bubbles */}
+        <rect x="40" y="60" width="200" height="52" rx="16" fill="#eef6fc" stroke="#12b4f3" strokeWidth="1.5" />
+        <text x="60" y="88" fontSize="13" fill="#0b74c9" fontFamily="Inter, sans-serif" fontWeight="500">Have a problem AI should solve?</text>
+        <polygon points="60,112 76,112 68,124" fill="#eef6fc" stroke="#12b4f3" strokeWidth="1.5" strokeLinejoin="round" />
+
+        <rect x="240" y="140" width="200" height="52" rx="16" fill="#0b74c9" />
+        <text x="260" y="168" fontSize="13" fill="#fff" fontFamily="Inter, sans-serif" fontWeight="500">Tell me what you need →</text>
+        <polygon points="420,192 436,192 428,204" fill="#0b74c9" />
+
+        {/* Floating nodes */}
+        <circle cx="400" cy="60" r="28" fill="#eef6fc" stroke="#12b4f3" strokeWidth="2" />
+        <text x="400" y="65" textAnchor="middle" fontSize="20" fill="#12b4f3">🤝</text>
+
+        <circle cx="80" cy="240" r="22" fill="#eef6fc" stroke="#0b74c9" strokeWidth="2" />
+        <text x="80" y="246" textAnchor="middle" fontSize="16" fill="#0b74c9">💡</text>
+
+        <circle cx="400" cy="240" r="22" fill="#eef6fc" stroke="#12b4f3" strokeWidth="2" />
+        <text x="400" y="246" textAnchor="middle" fontSize="16" fill="#12b4f3">🚀</text>
+
+        {/* Connecting lines */}
+        <line x1="80" y1="218" x2="240" y2="168" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="4 3" />
+        <line x1="400" y1="88" x2="440" y2="140" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="4 3" />
+
+        {/* Stats chips */}
+        <rect x="150" y="240" width="88" height="28" rx="14" fill="#0b74c9" />
+        <text x="194" y="258" textAnchor="middle" fontSize="11" fill="#fff" fontFamily="Inter, sans-serif" fontWeight="600">57 projects</text>
+        <rect x="252" y="240" width="104" height="28" rx="14" fill="#12b4f3" />
+        <text x="304" y="258" textAnchor="middle" fontSize="11" fill="#fff" fontFamily="Inter, sans-serif" fontWeight="600">₹8 cr+ value</text>
+      </svg>
+    </div>
+  );
+}
+
+/** Dispatch the right visual for each hero slide. */
+export function HeroSlideVisual({ visual }: { visual: string }) {
+  if (visual === "search-demo") return <ProductDemo demo={products[0].demo} />;
+  if (visual === "kaanan-demo") return <ProductDemo demo={products[1].demo} />;
+  if (visual === "hero-network") return <HeroVisual />;
+  if (visual === "cta-art") return <CtaArt />;
+  return <HeroVisual />;
 }

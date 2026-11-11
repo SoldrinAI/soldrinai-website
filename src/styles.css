@@ -246,3 +246,243 @@ footer { border-top: 1px solid var(--line); padding: 40px 0 28px; color: var(--s
   .res { grid-template-columns: 1fr 50px 26px; font-size: .82rem; }
   .wcard { flex-direction: column; }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SLIDER (Embla-based reusable carousel)
+   ══════════════════════════════════════════════════════════════════════════*/
+
+/* Core shell */
+.slider { position: relative; }
+.slider-viewport { overflow: hidden; }
+.slider-slide { position: relative; user-select: none; }
+
+/* Controls row */
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 0 4px;
+}
+
+/* Arrow buttons */
+.slider-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s, transform .2s, box-shadow .2s;
+  flex-shrink: 0;
+}
+.slider-btn:hover:not(:disabled) {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(11,116,201,.25);
+}
+.slider-btn:disabled { opacity: 0.35; cursor: default; }
+.slider-btn:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* Dots */
+.slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  justify-content: center;
+}
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--line);
+  cursor: pointer;
+  padding: 0;
+  transition: background .25s, transform .25s, width .25s;
+}
+.slider-dot.active {
+  background: var(--blue);
+  width: 24px;
+  border-radius: 4px;
+}
+.slider-dot:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* Progress bar */
+.slider-progress {
+  height: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+.slider-progress-fill {
+  height: 100%;
+  background: var(--cyan);
+  transition: width 80ms linear;
+}
+
+/* ─── Hero slider ───────────────────────────────────────────────────────── */
+.hero-slider { overflow: hidden; }
+.hero-slider .slider-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(6px);
+  border-radius: 99px;
+  padding: 6px 14px;
+  gap: 8px;
+  box-shadow: 0 2px 12px rgba(15,23,34,.12);
+}
+.hero-slider .slider-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+.hero-slider .slider-btn:hover:not(:disabled) {
+  background: var(--tint);
+  box-shadow: none;
+  transform: none;
+}
+.hero-slider .slider-progress { position: absolute; bottom: 0; left: 0; right: 0; }
+
+/* Each hero slide */
+.hero-slide {
+  padding: 72px 0 100px;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.hero-visual-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ─── Capabilities slider ───────────────────────────────────────────────── */
+.caps-slider {
+  padding: 24px 20px 8px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.caps-slider .rcard {
+  height: 100%;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ─── Home products slider ──────────────────────────────────────────────── */
+.products-slider {
+  padding: 24px 20px 8px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.product-slide-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 32px;
+  height: 100%;
+  transition: border-color .3s, box-shadow .3s;
+}
+.product-slide-card:hover {
+  border-color: #b9d9f2;
+  box-shadow: 0 8px 24px rgba(11,116,201,.1);
+}
+.psc-copy .pill { margin-bottom: 10px; }
+.psc-copy h3 { font-size: 1.5rem; margin: 6px 0; }
+.psc-copy .cta { margin-top: 20px; }
+
+/* ─── Products page hero slider ─────────────────────────────────────────── */
+.product-hero-slider { margin-bottom: 0; }
+.product-hero-slider .slider-controls { padding: 12px 20px 4px; }
+.product-hero-slide { padding: 56px 0; }
+
+/* ─── About timeline slider ─────────────────────────────────────────────── */
+.timeline-slider {
+  padding: 24px 20px 8px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.tl-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px 28px;
+  height: 100%;
+  position: relative;
+  transition: border-color .3s, box-shadow .3s, transform .3s var(--ease);
+}
+.tl-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 12px 12px 0 0;
+  background: linear-gradient(90deg, var(--cyan), var(--blue));
+}
+.tl-card:hover {
+  border-color: #b9d9f2;
+  box-shadow: 0 8px 24px rgba(11,116,201,.1);
+  transform: translateY(-3px);
+}
+.tl-card .when { color: var(--blue); font-size: .85rem; display: block; margin-bottom: 6px; }
+.tl-card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.tl-card p { margin: 0; color: var(--sub); font-size: .92rem; }
+
+/* ─── About education slider ────────────────────────────────────────────── */
+.edu-slider {
+  padding: 24px 20px 8px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.edu-card { height: 100%; }
+.edu-card h3 { margin-top: 0; }
+
+/* ─── Slide art ─────────────────────────────────────────────────────────── */
+.slide-art {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  aspect-ratio: 3/2;
+}
+
+/* ─── Slider responsive ─────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .hero-slide { padding: 48px 0 90px; min-height: unset; }
+  .hero-visual-wrap { display: none; }
+  .product-hero-slide .split { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .hero-slide { padding: 36px 0 80px; }
+  .hero-slider .slider-controls { width: calc(100% - 40px); }
+  .caps-slider,
+  .products-slider,
+  .timeline-slider,
+  .edu-slider { padding: 16px 12px 8px; }
+  .tl-card { padding: 20px; }
+}
