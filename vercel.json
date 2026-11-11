@@ -1,11 +1,36 @@
 {
   "redirects": [
-    { "source": "/smart-search", "destination": "/smart-search/", "permanent": false },
-    { "source": "/rag-search", "destination": "/rag-search/", "permanent": false }
+    {
+      "source": "/smart-search",
+      "destination": "/smart-search/",
+      "permanent": false
+    },
+    {
+      "source": "/rag-search",
+      "destination": "/rag-search/",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/smart-search/:path*", "destination": "https://soldrin-search.vercel.app/:path*" },
-    { "source": "/rag-search/:path*", "destination": "https://soldrinai-rag-chatbot.vercel.app/:path*" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/smart-search/",
+      "destination": "https://soldrin-search.vercel.app/"
+    },
+    {
+      "source": "/rag-search/",
+      "destination": "https://soldrinai-rag-chatbot.vercel.app/"
+    },
+    {
+      "source": "/smart-search/:path*",
+      "destination": "https://soldrin-search.vercel.app/:path*"
+    },
+    {
+      "source": "/rag-search/:path*",
+      "destination": "https://soldrinai-rag-chatbot.vercel.app/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
