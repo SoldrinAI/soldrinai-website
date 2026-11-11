@@ -205,6 +205,13 @@ section.tight { padding: 40px 0 72px; }
 .big-link:hover { transform: translateY(-3px); border-color: #b9d9f2; box-shadow: 0 12px 26px rgba(11,116,201,.12); }
 .big-link:hover em { transform: translateX(8px); }
 
+.wa-fab { position: fixed; right: 20px; bottom: 20px; z-index: 30; display: flex; align-items: center; gap: 10px; background: #25d366; color: #fff; height: 56px; min-width: 56px; padding: 0 16px; border-radius: 28px; font-weight: 600; box-shadow: 0 8px 22px rgba(18,128,92,.35); overflow: hidden; transition: transform .3s var(--ease), box-shadow .3s; animation: rise .8s var(--ease) 1s both; }
+.wa-fab span { max-width: 0; opacity: 0; white-space: nowrap; transition: max-width .4s var(--ease), opacity .3s; }
+.wa-fab:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(18,128,92,.45); }
+.wa-fab:hover span { max-width: 180px; opacity: 1; }
+.wa-fab::before { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 0 0 rgba(37,211,102,.55); animation: wapulse 2.6s ease-out infinite; }
+@keyframes wapulse { to { box-shadow: 0 0 0 16px rgba(37,211,102,0); } }
+
 footer { border-top: 1px solid var(--line); padding: 40px 0 28px; color: var(--sub); font-size: .9rem; }
 .foot { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px 40px; }
 .foot p { margin: 6px 0 0; }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { site } from "../data/site";
 import { Logo } from "./Logo";
+import { WhatsAppIcon } from "./Visuals";
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -48,6 +49,10 @@ export default function Layout() {
       <Header />
       <main key={pathname} className="page"><Outlet /></main>
       <Footer />
+      <a className="wa-fab" href={site.whatsapp.href} target="_blank" rel="noreferrer" aria-label={site.whatsapp.label}>
+        <WhatsAppIcon />
+        <span>{site.whatsapp.label}</span>
+      </a>
     </>
   );
 }

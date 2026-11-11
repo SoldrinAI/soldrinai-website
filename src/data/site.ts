@@ -1,6 +1,10 @@
 // All site-wide copy, links and page content live here. Edit this file, not the components.
 
+const wa = { number: "919833644917", message: "Hi Yaohan, I found you through your website." };
+const waLink = `https://wa.me/${wa.number}?text=${encodeURIComponent(wa.message)}`;
+
 export const site = {
+  whatsapp: { href: waLink, label: "Chat on WhatsApp" },
   name: "Soldrin",
   nameAccent: "AI",
   tagline: "Production AI, not demos.",
@@ -86,6 +90,7 @@ export const site = {
   contact: {
     body: "Open to full-time roles, contract engagements and consulting in AI engineering, agentic systems and forward-deployment work. Based in Mumbai, India.",
     links: [
+      { label: "WhatsApp", note: "Chat with me directly", href: waLink },
       { label: "LinkedIn", note: "Best way to reach me", href: "https://www.linkedin.com/in/yaohan-fernandes/" },
       { label: "GitHub", note: "Code and open source", href: "https://github.com/SoldrinAI" },
     ],

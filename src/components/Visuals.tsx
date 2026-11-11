@@ -1,5 +1,5 @@
 import { useEffect, useState, type PointerEvent } from "react";
-import { siPython, siJavascript, siFastapi, siOpenai, siRedis, siMongodb, siDocker, siAmazonwebservices, siStreamlit, siTableau } from "simple-icons";
+import { siPython, siJavascript, siFastapi, siOpenai, siRedis, siMongodb, siDocker, siAmazonwebservices, siStreamlit, siTableau, siWhatsapp } from "simple-icons";
 import { site } from "../data/site";
 import type { Demo } from "../data/products";
 import { reduced } from "./Motion";
@@ -42,6 +42,12 @@ export function SkillLogo({ logo }: { logo: string }) {
     <svg className="brand" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
       <path d={b.path} fill={`#${b.hex === "000000" ? "0f1722" : b.hex}`} />
     </svg>
+  );
+}
+
+export function WhatsAppIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true"><path d={siWhatsapp.path} fill="currentColor" /></svg>
   );
 }
 
