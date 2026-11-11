@@ -7,7 +7,10 @@ export function useInView<T extends HTMLElement>() {
   const [seen, setSeen] = useState(false);
   useEffect(() => {
     const el = ref.current;
-    if (!el || reduced()) return setSeen(true);
+    if (!el || reduced()) {
+      setSeen(true);
+      return;
+    }
     const io = new IntersectionObserver(([e]) => e.isIntersecting && (setSeen(true), io.disconnect()), { threshold: 0.15 });
     io.observe(el);
     return () => io.disconnect();
@@ -31,7 +34,10 @@ export function CountUp({ to, prefix = "", suffix = "" }: { to: number; prefix?:
   const [n, setN] = useState(0);
   useEffect(() => {
     if (!seen) return;
-    if (reduced()) return setN(to);
+    if (reduced()) {
+      setN(to);
+      return;
+    }
     const t0 = performance.now();
     let raf = 0;
     const tick = (t: number) => {

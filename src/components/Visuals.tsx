@@ -65,10 +65,14 @@ function SearchDemo({ items }: { items: Extract<Demo, { kind: "search" }>["items
   const done = n >= cur.q.length;
   useEffect(() => {
     if (reduced()) return;
-    const t = setTimeout(
-      () => (done ? (setIdx((idx + 1) % items.length), setN(0)) : setN(n + 1)),
-      done ? 3200 : 55,
-    );
+    const t = setTimeout(() => {
+      if (done) {
+        setIdx((idx + 1) % items.length);
+        setN(0);
+      } else {
+        setN(n + 1);
+      }
+    }, done ? 3200 : 55);
     return () => clearTimeout(t);
   }, [n, done, idx, items.length]);
   return (
