@@ -94,7 +94,7 @@ footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--sub); 
 .about .lead { margin: 0 0 16px; }
 .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .fact { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; height: 100%; }
-.fact strong { color: var(--blue); font-size: 1.25rem; }
+.fact strong { color: var(--blue); font-size: 1.1rem; }
 .fact span { color: var(--sub); font-size: .85rem; }
 
 @media (max-width: 700px) {

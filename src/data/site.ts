@@ -27,7 +27,7 @@ export const site = {
       { value: "6+ yrs", label: "across analytics, product and AI delivery" },
       { value: "MSc AI", label: "Royal Holloway, University of London" },
       { value: "BE CS", label: "Xavier Institute of Engineering, Mumbai" },
-      { value: "7s → 2.6s", label: "search latency cut for a vehicle platform" },
+      { value: "7s → 2.6s → 400ms", label: "search latency cut for a vehicle platform" },
     ],
   },
   contact: {
