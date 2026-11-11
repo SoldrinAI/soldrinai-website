@@ -38,7 +38,7 @@ export const products: Product[] = [
     ],
     status: "Live",
     links: [
-      { label: "Try it live", href: "https://soldrin-search.vercel.app/" },
+      { label: "Try it live", href: "https://www.soldrinai.com/smart-search/" },
       { label: "Source code", href: "https://github.com/SoldrinAI/soldrin-smart-search" },
     ],
     demo: {
@@ -70,7 +70,7 @@ export const products: Product[] = [
     ],
     status: "Live",
     links: [
-      { label: "Try it live", href: "https://soldrinai-rag-chatbot.vercel.app/" },
+      { label: "Try it live", href: "https://www.soldrinai.com/rag-search/" },
       { label: "Source code", href: "https://github.com/SoldrinAI/SoldrinAI-rag-chatbot" },
     ],
     demo: {
