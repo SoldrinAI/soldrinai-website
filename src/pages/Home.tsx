@@ -102,10 +102,10 @@ export default function Home() {
         </div>
         <Slider
           label="Featured products"
-          slidesPerView={{ sm: 1, md: 1, lg: 2 }}
+          slidesPerView={{ sm: 1, md: 2, lg: 3 }}
           arrows
           dots
-          gap={32}
+          gap={24}
           loop={false}
           className="products-slider"
         >

@@ -17,9 +17,9 @@ export const site = {
   ],
   hero: {
     lead: "AI that",
-    words: ["finds the answer", "speaks your language", "spots the problem", "protects your code"],
+    words: ["finds the answer", "speaks your language", "spots the problem", "protects your code", "powers your Smart TV"],
     subtitle:
-      "I design and ship AI products for businesses: search that understands intent, analytics you can talk to, vision that spots problems, and voice that speaks your customers' language.",
+      "I design and ship production AI products, modern websites, and 10-foot Smart TV interfaces: natural search that understands intent, code security scanners, analytics you can talk to, and TV launchers built for the remote.",
     primaryCta: { label: "Explore products", to: "/products" },
     secondaryCta: { label: "Work with me", to: "/contact" },
     cards: [
@@ -33,8 +33,8 @@ export const site = {
     { value: 8, prefix: "Rs. ", suffix: " crore+", label: "enterprise value created" },
     { value: 4, prefix: "", suffix: "", label: "industries served" },
   ],
-  marquee: ["Hybrid search", "Talk-to-your-data", "RAG assistants", "Computer vision", "Voice AI", "Agentic systems", "Edge AI", "AI security", "MCP integrations"],
-  industries: ["Automotive", "Consumer electronics", "Industrial", "Finance / NBFC"],
+  marquee: ["Hybrid search", "Smart TV UI", "Website design", "Talk-to-your-data", "RAG assistants", "Computer vision", "Voice AI", "Agentic systems", "Edge AI", "AI security", "MCP integrations"],
+  industries: ["Automotive", "Consumer electronics", "Industrial", "Finance / NBFC", "Entertainment"],
   home: {
     featured: { eyebrow: "Featured product", cta: "See how it works" },
     rail: { title: "Everything I build", sub: "From search to security. Pick a domain to see what ships.", cta: "See all work" },
@@ -62,33 +62,33 @@ export const site = {
    *  pill (optional): small eyebrow label above the headline. */
   heroSlides: [
     {
-      pill: "Featured product",
+      pill: "Live application",
       headline: "Search that gets what you mean",
-      body: "Smart Search understands intent, not just keywords. Ask for \"red SUV under 15 lakh\" and get ranked results in seconds.",
+      body: "Smart Search understands intent, not just keywords. Drop in a spreadsheet and query natural language to get ranked semantic matches in seconds.",
       cta: { label: "Try Smart Search", to: "/products/smart-search" },
       visual: "search-demo",
-      image: "/images/hero-search.jpg",
+      image: "/images/smartsearch-ui.png",
     },
     {
-      pill: "Open source",
+      pill: "Open source CLI",
       headline: "Security testing that reads your code like an attacker",
-      body: "Kaanan scans code and running apps for vulnerabilities and explains what to fix first. One pip install away.",
+      body: "Kaanan scans code and running apps for vulnerabilities with AI-driven SAST & VAPT, generating instant executive PDF reports.",
       cta: { label: "See Kaanan", to: "/products/kaanan" },
       visual: "kaanan-demo",
-      image: "/images/hero-security.jpg",
+      image: "/images/kaanan-terminal.png",
     },
     {
-      pill: "What I build",
-      headline: "AI systems that run in production",
-      body: "From hybrid search to voice agents, computer vision to agentic pipelines — I design, build and ship AI that works.",
-      cta: { label: "Explore my work", to: "/work" },
-      visual: "hero-network",
-      image: "/images/hero-systems.jpg",
+      pill: "Smart TV OS",
+      headline: "CINÉ — Luxury Android TV UI & Launcher",
+      body: "Remote-first, jewelry-gold interface designed for the 10-foot couch experience on Sony Bravia and Android TV. Live app discovery, custom focus feedback, and zero telemetry.",
+      cta: { label: "Explore CINÉ", to: "/products/cine" },
+      visual: "cine-demo",
+      image: "/images/cine-tv-home.png",
     },
     {
-      pill: "Work with me",
-      headline: "Have a problem AI should solve?",
-      body: "I work with businesses across automotive, finance, industrial and consumer electronics. Tell me what you need.",
+      pill: "Design & Engineering",
+      headline: "Websites and interfaces built for performance",
+      body: "From production AI web applications and data dashboards to 10-foot Smart TV interfaces — I design and engineer clean, responsive digital products.",
       cta: { label: "Start a conversation", to: "/contact" },
       visual: "cta-art",
       image: "/images/hero-collab.jpg",
@@ -99,8 +99,8 @@ export const site = {
   testimonials: [] as Array<{ quote: string; name: string; role: string }>,
   about: {
     intro: [
-      "I'm Yaohan, an AI product manager and data scientist based in Mumbai. Over 6 years I've moved from business analysis and data operations into building AI that runs in production, from hybrid search and talk-to-your-data analytics to vision, voice and security tools.",
-      "I own the whole journey: scoping the problem with your team, designing the architecture, building it, shipping it, and supporting it after launch. I translate business problems into technical systems, and technical limits back into plain language.",
+      "I'm Yaohan, an AI product manager, data scientist, and interface designer based in Mumbai. Over 6 years I've moved from business analysis and data operations into building AI that runs in production — from hybrid search and talk-to-your-data analytics to vision, voice, security tools, modern web design, and Smart TV interfaces.",
+      "I own the whole journey: scoping the problem with your team, designing the interface and system architecture, building it, shipping it, and supporting it after launch. I translate business problems into technical systems, and technical limits back into plain language.",
     ],
     facts: [
       { value: "6+ yrs", label: "across analytics, product and AI delivery" },
@@ -152,11 +152,13 @@ export interface Capability {
 
 export const capabilities: Capability[] = [
   { icon: "search", domain: "Smart search", ships: "Search that finds the right answer by meaning and by exact term, fast and permission-aware.", example: "A commercial-vehicle search engine that understands what buyers mean.", industries: ["Automotive"] },
+  { icon: "layers", domain: "Smart TV & 10-Foot UI design", ships: "Cinematic, remote-first TV interfaces and Android TV launchers built for 4K displays, smooth D-pad navigation and instant focus states.", example: "CINÉ, a luxury Android TV launcher with custom typography and zero permissions.", industries: ["Consumer electronics", "Entertainment"] },
+  { icon: "docs", domain: "Website & web application design", ships: "High-performance, typography-led web applications, landing platforms, and data tools designed for speed and clarity.", example: "SoldrinAI platform, Smart Search web app, and client portals.", industries: ["Consumer electronics", "Automotive", "Enterprise"] },
   { icon: "analytics", domain: "Talk-to-your-data analytics", ships: "Ask business questions in plain language and get accurate, role-safe numbers.", example: "A sales analytics assistant where every user only sees the data they're allowed to.", industries: ["Consumer electronics"] },
   { icon: "vision", domain: "Computer vision", ships: "Detection and visual search pipelines that catch what people miss.", example: "Safety-gear detection taken through four generations of models into production.", industries: ["Industrial", "Consumer electronics"] },
   { icon: "voice", domain: "Voice AI", ships: "Natural multilingual voice agents, including Hinglish.", example: "A phone-line voice agent tuned to sound natural, not scripted.", industries: ["Industrial"] },
   { icon: "edge", domain: "Edge AI and hardware", ships: "Sensors, actuators and on-device vision working together.", example: "Published research on microcontroller sensing and movement control.", industries: ["Industrial"] },
   { icon: "security", domain: "AI security", ships: "Automated code and application security testing.", example: "Kaanan, an open-source security scanner on PyPI.", industries: ["Open source"] },
   { icon: "chat", domain: "Enterprise chat and RAG", ships: "Assistants that answer from your own documents, with memory.", example: "An HR assistant that answers staff questions from company policy.", industries: ["Finance / NBFC"] },
-  { icon: "layers", domain: "Enterprise AI architecture", ships: "Cloud and on-prem designs that plug into your existing systems.", example: "Procurement analytics wired into existing enterprise systems.", industries: ["Automotive", "Industrial"] },
+  { icon: "cloud", domain: "Enterprise AI architecture", ships: "Cloud and on-prem designs that plug into your existing systems.", example: "Procurement analytics wired into existing enterprise systems.", industries: ["Automotive", "Industrial"] },
 ];

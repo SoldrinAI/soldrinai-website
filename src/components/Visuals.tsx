@@ -145,7 +145,19 @@ function TerminalDemo({ lines }: { lines: Extract<Demo, { kind: "terminal" }>["l
 }
 
 export function ProductDemo({ demo }: { demo: Demo }) {
-  return demo.kind === "search" ? <SearchDemo items={demo.items} /> : <TerminalDemo lines={demo.lines} />;
+  if (demo.kind === "search") return <SearchDemo items={demo.items} />;
+  if (demo.kind === "terminal") return <TerminalDemo lines={demo.lines} />;
+  if (demo.kind === "image") {
+    return (
+      <div className="win img-win">
+        <div className="win-bar"><i /><i /><i /><span>{demo.caption || "CINÉ Android TV"}</span></div>
+        <div className="win-img-body">
+          <img src={demo.src} alt={demo.caption || "Product preview"} className="win-demo-img" />
+        </div>
+      </div>
+    );
+  }
+  return null;
 }
 
 // ─── Hero slide artwork ───────────────────────────────────────────────────────
@@ -215,7 +227,13 @@ export function HeroSlideVisual({ visual, image, alt }: { visual: string; image?
         {visual === "kaanan-demo" && (
           <div className="artwork-floating-badge badge-security">
             <CapIcon name="security" size={16} />
-            <span>Security audit · <b>0 vulnerabilities</b></span>
+            <span>Security audit · <b>SAST &amp; VAPT</b></span>
+          </div>
+        )}
+        {visual === "cine-demo" && (
+          <div className="artwork-floating-badge badge-cine">
+            <CapIcon name="layers" size={16} />
+            <span>Smart TV OS · <b>10-Foot UI</b></span>
           </div>
         )}
         {visual === "hero-network" && (

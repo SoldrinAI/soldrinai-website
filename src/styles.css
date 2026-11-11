@@ -376,7 +376,8 @@ footer { border-top: 1px solid var(--line); padding: 40px 0 28px; color: var(--s
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  width: 100%;
+  padding-bottom: 16px;
 }
 
 /* ─── Capabilities slider ───────────────────────────────────────────────── */
@@ -560,7 +561,7 @@ footer { border-top: 1px solid var(--line); padding: 40px 0 28px; color: var(--s
 /* ─── Slider responsive ─────────────────────────────────────────────────── */
 @media (max-width: 860px) {
   .hero-slide { padding: 48px 0 90px; min-height: unset; }
-  .hero-visual-wrap { display: none; }
+  .hero-visual-wrap { margin-top: 28px; max-width: 480px; width: 100%; }
   .product-hero-slide .split { grid-template-columns: 1fr; }
 }
 @media (max-width: 700px) {
@@ -607,3 +608,21 @@ footer { border-top: 1px solid var(--line); padding: 40px 0 28px; color: var(--s
 .tq-meta { display: flex; flex-direction: column; gap: 2px; }
 .tq-meta strong { font-weight: 600; }
 .tq-meta span { color: var(--sub); font-size: .9rem; }
+
+/* ─── Image Demo Window ─────────────────────────────────────────────────── */
+.win.img-win .win-img-body {
+  overflow: hidden;
+  background: #0b1118;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.win-demo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.hero-artwork-media {
+  background: #0f1722;
+}

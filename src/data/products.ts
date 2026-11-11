@@ -2,7 +2,8 @@
 
 export type Demo =
   | { kind: "search"; items: { q: string; rows: { t: string; s: number }[] }[] }
-  | { kind: "terminal"; lines: { c: "cmd" | "out" | "warn" | "ok"; t: string }[] };
+  | { kind: "terminal"; lines: { c: "cmd" | "out" | "warn" | "ok"; t: string }[] }
+  | { kind: "image"; src: string; caption?: string };
 
 export interface Product {
   slug: string;
@@ -22,7 +23,7 @@ export const products: Product[] = [
     slug: "smart-search",
     name: "Smart Search",
     tagline: "Search your spreadsheet like you'd ask a colleague.",
-    image: "/images/hero-search.jpg",
+    image: "/images/smartsearch-ui.png",
     description:
       "Upload a CSV or Excel file and find the right rows in plain language. It understands what you mean and still catches exact terms, so nothing slips through.",
     highlights: [
@@ -53,7 +54,7 @@ export const products: Product[] = [
     slug: "kaanan",
     name: "Kaanan",
     tagline: "Security testing that reads your code like an attacker.",
-    image: "/images/hero-security.jpg",
+    image: "/images/kaanan-terminal.png",
     description:
       "An open-source command-line tool that scans your code and running apps for vulnerabilities, and explains what to fix first.",
     highlights: [
@@ -75,13 +76,41 @@ export const products: Product[] = [
       kind: "terminal",
       lines: [
         { c: "cmd", t: "pip install kaanan" },
-        { c: "cmd", t: "kaanan scan ./my-app" },
+        { c: "cmd", t: "kaanan scan --dir ./my-app" },
         { c: "out", t: "Reading 142 files..." },
         { c: "out", t: "Tracing user input to dangerous calls..." },
         { c: "warn", t: "HIGH  SQL built from user input  api/orders.py:58" },
         { c: "warn", t: "MED   Secret left in config      settings.py:12" },
         { c: "ok", t: "2 findings. Fix suggestions ready." },
       ],
+    },
+  },
+  {
+    slug: "cine",
+    name: "CINÉ",
+    tagline: "A cinematic, luxury Android TV launcher for Sony Bravia and Android TV.",
+    image: "/images/cine-tv-home.png",
+    description:
+      "A remote-first, jewelry-gold smart TV interface designed for the 10-foot couch experience. Features live PackageManager app discovery, custom focus feedback, cinematic previews, and zero permissions or telemetry.",
+    highlights: [
+      "Built for the 10-foot experience on 1920×1080 canvas",
+      "Full remote D-pad navigation with gold focus treatment",
+      "Live discovery of installed apps (Netflix, Prime, YouTube)",
+      "Zero permissions, zero network, zero telemetry",
+    ],
+    steps: [
+      { title: "Install", body: "Sideload the APK onto your Android TV or Sony Bravia." },
+      { title: "Browse", body: "Use your TV remote D-pad to navigate apps, continue watching, and shelves." },
+      { title: "Customize", body: "Tailor wallpapers, UI scale, accent colors, and favorites in local settings." },
+    ],
+    status: "Open source",
+    links: [
+      { label: "Source code", href: "https://github.com/SoldrinAI/cine-android-tv-launcher" },
+    ],
+    demo: {
+      kind: "image",
+      src: "/images/cine-tv-home.png",
+      caption: "CINÉ Android TV Home Screen (1920×1080 canvas)",
     },
   },
 ];
