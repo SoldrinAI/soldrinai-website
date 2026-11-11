@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { site } from "../data/site";
 
 export function Mark({ size = 28 }: { size?: number }) {
@@ -18,12 +19,12 @@ export function Mark({ size = 28 }: { size?: number }) {
 
 export function Logo() {
   return (
-    <a className="logo" href="#top">
+    <Link className="logo" to="/">
       <Mark />
       <span>
         {site.name}
         <b>{site.nameAccent}</b>
       </span>
-    </a>
+    </Link>
   );
 }

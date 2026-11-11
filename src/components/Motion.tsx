@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+export const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-function useInView<T extends HTMLElement>() {
+export function useInView<T extends HTMLElement>() {
   const ref = useRef<T>(null);
   const [seen, setSeen] = useState(false);
   useEffect(() => {
@@ -45,25 +45,23 @@ export function CountUp({ to, prefix = "", suffix = "" }: { to: number; prefix?:
   return <span ref={ref}>{prefix}{n}{suffix}</span>;
 }
 
-const nodes: [number, number][] = [
-  [80, 90], [220, 40], [360, 120], [520, 60], [680, 130], [820, 50], [960, 110],
-  [140, 250], [300, 210], [470, 280], [640, 230], [800, 290], [940, 240],
-];
-const links: [number, number][] = [
-  [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [0, 7], [1, 8], [2, 8], [3, 9], [4, 10],
-  [5, 11], [6, 12], [7, 8], [8, 9], [9, 10], [10, 11], [11, 12], [2, 9], [4, 11],
-];
+/** Cycles through words with a slide animation. */
+export function RotatingWord({ words }: { words: string[] }) {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (reduced()) return;
+    const t = setInterval(() => setI((n) => (n + 1) % words.length), 2600);
+    return () => clearInterval(t);
+  }, [words.length]);
+  return <span key={i} className="rot">{words[i]}</span>;
+}
 
-/** Drifting hexagon-network backdrop for the hero. */
-export function NetworkBg() {
-  return (
-    <svg className="net" viewBox="0 0 1040 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      {links.map(([a, b], i) => (
-        <line key={i} x1={nodes[a][0]} y1={nodes[a][1]} x2={nodes[b][0]} y2={nodes[b][1]} className="net-line" style={{ animationDelay: `${(i % 7) * 0.5}s` }} />
-      ))}
-      {nodes.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r={i % 3 === 0 ? 3 : 2} className="net-node" style={{ animationDelay: `${(i % 5) * 0.6}s` }} />
-      ))}
-    </svg>
+/** Endless horizontal ticker. */
+export function Marquee({ items }: { items: string[] }) {
+  const row = (k: string) => (
+    <div className="mq-row" aria-hidden={k === "b"} key={k}>
+      {items.map((t) => <span key={t}>{t}</span>)}
+    </div>
   );
+  return <div className="marquee">{row("a")}{row("b")}</div>;
 }
