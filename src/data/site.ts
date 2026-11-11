@@ -12,16 +12,22 @@ export const site = {
     secondaryCta: { label: "Work with me", href: "#contact" },
   },
   stats: [
-    { value: "57", label: "systems delivered" },
-    { value: "Rs. 8 crore+", label: "enterprise value created" },
-    { value: "4", label: "industries served" },
+    { value: 57, prefix: "", suffix: "", label: "systems delivered" },
+    { value: 8, prefix: "Rs. ", suffix: " crore+", label: "enterprise value created" },
+    { value: 4, prefix: "", suffix: "", label: "industries served" },
   ],
   industries: ["Automotive", "Consumer electronics", "Industrial", "Finance / NBFC"],
   about: {
     title: "One engineer, the full cycle",
     body: [
-      "I own the whole journey: scoping the problem with your team, designing the architecture, building it, shipping it, and supporting it after launch.",
-      "I work directly with stakeholders and translate business problems into technical systems, and technical limits back into plain language.",
+      "I'm Yaohan, an AI product manager and data scientist based in Mumbai. Over 6 years I've moved from business analysis and data operations into building AI that runs in production, from hybrid search and talk-to-your-data analytics to vision, voice and security tools.",
+      "I own the whole journey: scoping the problem with your team, designing the architecture, building it, shipping it, and supporting it after launch. I translate business problems into technical systems, and technical limits back into plain language.",
+    ],
+    facts: [
+      { value: "6+ yrs", label: "across analytics, product and AI delivery" },
+      { value: "MSc AI", label: "Royal Holloway, University of London" },
+      { value: "BE CS", label: "Xavier Institute of Engineering, Mumbai" },
+      { value: "7s → 2.6s", label: "search latency cut for a vehicle platform" },
     ],
   },
   contact: {
