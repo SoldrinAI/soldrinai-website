@@ -1,4 +1,5 @@
 import { useEffect, useState, type PointerEvent } from "react";
+import { siPython, siJavascript, siFastapi, siOpenai, siRedis, siMongodb, siDocker, siAmazonwebservices, siStreamlit, siTableau } from "simple-icons";
 import { site } from "../data/site";
 import type { Demo } from "../data/products";
 import { reduced } from "./Motion";
@@ -11,6 +12,12 @@ const icons: Record<string, JSX.Element> = {
   edge: <><rect x="6" y="6" width="12" height="12" rx="2" /><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" /></>,
   security: <><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" /><path d="M9 12l2 2 4-4" /></>,
   chat: <path d="M4 5h16v11H9l-5 4z" />,
+  database: <><ellipse cx="12" cy="6" rx="8" ry="3" /><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" /></>,
+  cloud: <path d="M7 18a4 4 0 01-.5-8 5.5 5.5 0 0110.7 1A3.5 3.5 0 0117 18z" />,
+  plug: <path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 01-12 0zM12 17v5" />,
+  agent: <><circle cx="12" cy="12" r="3" /><circle cx="5" cy="5" r="2" /><circle cx="19" cy="5" r="2" /><circle cx="5" cy="19" r="2" /><circle cx="19" cy="19" r="2" /><path d="M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3" /></>,
+  docs: <><path d="M6 3h9l4 4v14H6z" /><path d="M14 3v5h5M9 13h7M9 17h7" /></>,
+  arrows: <path d="M4 8h14M14 4l4 4-4 4M20 16H6M10 12l-4 4 4 4" />,
   layers: <><path d="M12 3l9 5-9 5-9-5z" /><path d="M3 13l9 5 9-5" /></>,
 };
 
@@ -18,6 +25,22 @@ export function CapIcon({ name, size = 26 }: { name: string; size?: number }) {
   return (
     <svg className="icon" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {icons[name]}
+    </svg>
+  );
+}
+
+const brands: Record<string, { path: string; hex: string }> = {
+  python: siPython, javascript: siJavascript, fastapi: siFastapi, openai: siOpenai, redis: siRedis,
+  mongodb: siMongodb, docker: siDocker, aws: siAmazonwebservices, streamlit: siStreamlit, tableau: siTableau,
+};
+
+/** Brand logo in its own colour when we have one, otherwise a neutral line icon. */
+export function SkillLogo({ logo }: { logo: string }) {
+  const b = brands[logo];
+  if (!b) return <CapIcon name={logo} size={18} />;
+  return (
+    <svg className="brand" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+      <path d={b.path} fill={`#${b.hex === "000000" ? "0f1722" : b.hex}`} />
     </svg>
   );
 }

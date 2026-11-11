@@ -32,7 +32,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Marquee items={site.marquee} />
+      <Marquee items={site.marquee.map((label) => ({ label }))} />
 
       <section>
         <div className="wrap split">

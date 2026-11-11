@@ -1,5 +1,6 @@
 import { site } from "../data/site";
 import { Marquee, Reveal } from "../components/Motion";
+import { SkillLogo } from "../components/Visuals";
 import { PageHead } from "./Contact";
 
 export default function About() {
@@ -52,7 +53,7 @@ export default function About() {
 
       <section className="soft tight">
         <div className="wrap"><Reveal><h2>{about.skillsTitle}</h2></Reveal></div>
-        <Marquee items={about.skills} />
+        <Marquee items={about.skills.map((k) => ({ label: k.name, icon: <SkillLogo logo={k.logo} /> }))} />
       </section>
     </>
   );

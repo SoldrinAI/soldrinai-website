@@ -192,8 +192,10 @@ section.tight { padding: 40px 0 72px; }
 .tl .when { color: var(--blue); font-size: .85rem; }
 .tl p { margin: 0; color: var(--sub); }
 .soft .marquee { margin-top: 20px; border: 0; background: transparent; }
-.soft .mq-row span { background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 6px 16px; color: var(--blue-d); font-weight: 500; }
+.soft .mq-row span { gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 6px 16px; color: var(--blue-d); font-weight: 500; }
 .soft .mq-row span::after { display: none; }
+.soft .mq-row .icon { color: var(--blue); width: 18px; height: 18px; flex: none; }
+.brand { flex: none; }
 .soft .mq-row { gap: 12px; padding-right: 12px; animation-duration: 40s; }
 
 /* contact */

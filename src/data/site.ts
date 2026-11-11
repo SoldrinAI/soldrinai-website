@@ -73,7 +73,15 @@ export const site = {
       { degree: "BE Computer Science", place: "Xavier Institute of Engineering, Mumbai", note: "Distributed databases, big data, security, AI" },
     ],
     skillsTitle: "Toolbox",
-    skills: ["Python", "SQL", "JavaScript", "FastAPI", "Agentic AI", "MCP", "RAG", "LLMs", "Azure OpenAI", "Qdrant", "Redis", "MongoDB", "Docker", "AWS", "Azure", "WebSocket", "Streamlit", "Tableau"],
+    skills: [
+      { name: "Python", logo: "python" }, { name: "SQL", logo: "database" }, { name: "JavaScript", logo: "javascript" },
+      { name: "FastAPI", logo: "fastapi" }, { name: "Agentic AI", logo: "agent" }, { name: "MCP", logo: "plug" },
+      { name: "RAG", logo: "docs" }, { name: "LLMs", logo: "chat" }, { name: "OpenAI", logo: "openai" },
+      { name: "Azure OpenAI", logo: "cloud" }, { name: "Qdrant", logo: "database" }, { name: "Redis", logo: "redis" },
+      { name: "MongoDB", logo: "mongodb" }, { name: "Docker", logo: "docker" }, { name: "AWS", logo: "aws" },
+      { name: "Azure", logo: "cloud" }, { name: "WebSocket", logo: "arrows" }, { name: "Streamlit", logo: "streamlit" },
+      { name: "Tableau", logo: "tableau" },
+    ],
   },
   contact: {
     body: "Open to full-time roles, contract engagements and consulting in AI engineering, agentic systems and forward-deployment work. Based in Mumbai, India.",

@@ -62,11 +62,11 @@ export function RotatingWord({ words }: { words: string[] }) {
   return <span key={i} className="rot">{words[i]}</span>;
 }
 
-/** Endless horizontal ticker. */
-export function Marquee({ items }: { items: string[] }) {
+/** Endless horizontal ticker. Items may carry an icon. */
+export function Marquee({ items }: { items: { label: string; icon?: ReactNode }[] }) {
   const row = (k: string) => (
     <div className="mq-row" aria-hidden={k === "b"} key={k}>
-      {items.map((t) => <span key={t}>{t}</span>)}
+      {items.map((t) => <span key={t.label}>{t.icon}{t.label}</span>)}
     </div>
   );
   return <div className="marquee">{row("a")}{row("b")}</div>;
