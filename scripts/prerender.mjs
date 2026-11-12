@@ -11,7 +11,7 @@ const { products } = await vite.ssrLoadModule("/src/data/products.ts");
 await vite.close();
 
 const base = readFileSync("dist/index.html", "utf8");
-const DEFAULT_DESC = "AI products and systems built for real businesses: search, analytics, vision, voice and security. By Yaohan Fernandes.";
+const DEFAULT_DESC = "SoldrinAI is an AI studio building production search, analytics, vision, voice and security products for real businesses. By Yaohan Fernandes.";
 
 const org = {
   "@context": "https://schema.org",
@@ -27,17 +27,17 @@ const org = {
 const pages = [
   { path: "", title: "SoldrinAI · Production AI, not demos", desc: DEFAULT_DESC, jsonld: org,
     body: `<h1>SoldrinAI: Production AI, not demos</h1><p>${esc(DEFAULT_DESC)}</p><h2>Products</h2><ul>${products.map((p) => `<li><a href="/products/${p.slug}">${esc(p.name)}</a>: ${esc(p.tagline)}</li>`).join("")}</ul>` },
-  { path: "products", title: "Products · SoldrinAI", desc: "AI products by SoldrinAI: Smart Search, RAG Chatbot, Kaanan and Cine.",
-    body: `<h1>Products</h1><ul>${products.map((p) => `<li><a href="/products/${p.slug}">${esc(p.name)}</a>: ${esc(p.description)}</li>`).join("")}</ul>` },
+  { path: "products", title: "Products · SoldrinAI", desc: "SoldrinAI products: Smart Search, RAG Chatbot, Kaanan and Cine. Production AI built for real businesses.",
+    body: `<h1>SoldrinAI Products</h1><ul>${products.map((p) => `<li><a href="/products/${p.slug}">${esc(p.name)}</a>: ${esc(p.description)}</li>`).join("")}</ul>` },
   ...products.map((p) => ({
-    path: `products/${p.slug}`, title: `${p.name} · SoldrinAI`, desc: p.description,
-    body: `<h1>${esc(p.name)}</h1><p>${esc(p.tagline)}</p><p>${esc(p.description)}</p><ul>${p.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>`,
+    path: `products/${p.slug}`, title: `${p.name} · SoldrinAI`, desc: `${p.name} by SoldrinAI. ${p.description}`,
+    body: `<h1>${esc(p.name)} by SoldrinAI</h1><p>${esc(p.tagline)}</p><p>${esc(p.description)}</p><ul>${p.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>`,
   })),
-  { path: "work", title: "What I build · SoldrinAI", desc: "Hybrid search, RAG assistants, computer vision, voice AI, Smart TV interfaces and AI security, shipped to production.",
-    body: "<h1>What I build</h1><p>Hybrid search, RAG assistants, computer vision, voice AI, Smart TV interfaces and AI security, shipped to production.</p>" },
-  { path: "about", title: "About · SoldrinAI", desc: "SoldrinAI is the studio of Yaohan Fernandes, building production AI products and systems for real businesses.",
+  { path: "work", title: "What I build · SoldrinAI", desc: "What SoldrinAI builds: hybrid search, RAG assistants, computer vision, voice AI, Smart TV interfaces and AI security, shipped to production.",
+    body: "<h1>What SoldrinAI builds</h1><p>SoldrinAI ships hybrid search, RAG assistants, computer vision, voice AI, Smart TV interfaces and AI security, shipped to production.</p>" },
+  { path: "about", title: "About · SoldrinAI", desc: "About SoldrinAI: the AI studio of Yaohan Fernandes, building production AI products and systems for real businesses.",
     body: "<h1>About SoldrinAI</h1><p>SoldrinAI is the studio of Yaohan Fernandes, building production AI products and systems for real businesses.</p>" },
-  { path: "contact", title: "Contact · SoldrinAI", desc: "Work with SoldrinAI: get in touch on LinkedIn, GitHub or WhatsApp.",
+  { path: "contact", title: "Contact · SoldrinAI", desc: "Contact SoldrinAI to build production AI for your business. Reach Yaohan Fernandes on LinkedIn, GitHub or WhatsApp.",
     body: "<h1>Contact SoldrinAI</h1><p>Reach Yaohan Fernandes on LinkedIn or GitHub.</p>" },
 ];
 
