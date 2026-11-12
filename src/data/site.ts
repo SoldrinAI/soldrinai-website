@@ -10,12 +10,14 @@ export const site = {
   name: "Soldrin",
   nameAccent: "AI",
   tagline: "Production AI, not demos.",
+  india: { badge: "Made in India" },
   nav: [
     { label: "Products", to: "/products" },
     { label: "What I build", to: "/work" },
     { label: "About", to: "/about" },
   ],
   hero: {
+    pill: "Indian AI company · Made in India",
     lead: "AI that",
     words: ["finds the answer", "speaks your language", "spots the problem", "protects your code", "answers from your documents", "powers your Smart TV"],
     subtitle:
@@ -107,7 +109,7 @@ export const site = {
   testimonials: [] as Array<{ quote: string; name: string; role: string }>,
   about: {
     intro: [
-      "I'm Yaohan, an AI product manager, data scientist, and interface designer based in Mumbai. Over 6 years I've moved from business analysis and data operations into building AI that runs in production — from hybrid search and talk-to-your-data analytics to vision, voice, security tools, modern web design, and Smart TV interfaces.",
+      "SoldrinAI is an Indian AI company, founded and run from Mumbai. I'm Yaohan, an AI product manager, data scientist, and interface designer based in Mumbai, India. Over 6 years I've moved from business analysis and data operations into building AI that runs in production — from hybrid search and talk-to-your-data analytics to vision, voice, security tools, modern web design, and Smart TV interfaces.",
       "I own the whole journey: scoping the problem with your team, designing the interface and system architecture, building it, shipping it, and supporting it after launch. I translate business problems into technical systems, and technical limits back into plain language.",
     ],
     facts: [

@@ -24,7 +24,7 @@ export default function Home() {
           <div key={slide.visual} className="hero-slide dots">
             <div className="wrap hero-grid">
               <div className="hero-copy">
-                {slide.pill && <p className="eyebrow">{slide.pill}</p>}
+                <p className="eyebrow">{slide.pill ? `${slide.pill} · ` : ""}<span className="in-flag">{site.india.badge}</span></p>
                 <h1>{slide.headline}</h1>
                 <p className="lead">{slide.body}</p>
                 <div className="cta">

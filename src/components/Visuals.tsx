@@ -1,5 +1,5 @@
 import { useEffect, useState, type PointerEvent } from "react";
-import { siPython, siJavascript, siFastapi, siOpenai, siRedis, siMongodb, siDocker, siAmazonwebservices, siStreamlit, siTableau, siWhatsapp } from "simple-icons";
+import { siPython, siJavascript, siFastapi, siOpenai, siRedis, siMongodb, siDocker, siAmazonwebservices, siStreamlit, siTableau, siWhatsapp, siLinkedin, siGithub } from "simple-icons";
 import { site } from "../data/site";
 import type { Demo } from "../data/products";
 import { products } from "../data/products";
@@ -50,6 +50,12 @@ export function WhatsAppIcon({ size = 24 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true"><path d={siWhatsapp.path} fill="currentColor" /></svg>
   );
+}
+
+export function BrandIcon({ name, size = 18 }: { name: string; size?: number }) {
+  const icon = { WhatsApp: siWhatsapp, LinkedIn: siLinkedin, GitHub: siGithub }[name];
+  if (!icon) return null;
+  return <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true"><path d={icon.path} fill="currentColor" /></svg>;
 }
 
 /** Hexagon network with floating cards that follow the pointer. */

@@ -11,7 +11,7 @@ const { products } = await vite.ssrLoadModule("/src/data/products.ts");
 await vite.close();
 
 const base = readFileSync("dist/index.html", "utf8");
-const DEFAULT_DESC = "SoldrinAI is an AI studio building production search, analytics, vision, voice and security products for real businesses. By Yaohan Fernandes.";
+const DEFAULT_DESC = "SoldrinAI is an Indian AI company, based in Mumbai, building production search, analytics, vision, voice and security products for real businesses. By Yaohan Fernandes.";
 
 const org = {
   "@context": "https://schema.org",
@@ -19,6 +19,8 @@ const org = {
     { "@type": "Organization", "@id": `${ORIGIN}/#org`, name: "SoldrinAI", alternateName: "Soldrin AI", url: `${ORIGIN}/`,
       logo: `${ORIGIN}/favicon.svg`, description: DEFAULT_DESC,
       founder: { "@type": "Person", name: "Yaohan Fernandes" },
+      address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressRegion: "Maharashtra", addressCountry: "IN" },
+      areaServed: "IN",
       sameAs: ["https://github.com/SoldrinAI", "https://www.linkedin.com/in/yaohan-fernandes/"] },
     { "@type": "WebSite", "@id": `${ORIGIN}/#site`, name: "SoldrinAI", url: `${ORIGIN}/`, publisher: { "@id": `${ORIGIN}/#org` } },
   ],
@@ -35,7 +37,7 @@ const pages = [
   })),
   { path: "work", title: "What I build · SoldrinAI", desc: "What SoldrinAI builds: hybrid search, RAG assistants, computer vision, voice AI, Smart TV interfaces and AI security, shipped to production.",
     body: "<h1>What SoldrinAI builds</h1><p>SoldrinAI ships hybrid search, RAG assistants, computer vision, voice AI, Smart TV interfaces and AI security, shipped to production.</p>" },
-  { path: "about", title: "About · SoldrinAI", desc: "About SoldrinAI: the AI studio of Yaohan Fernandes, building production AI products and systems for real businesses.",
+  { path: "about", title: "About · SoldrinAI", desc: "About SoldrinAI: the Indian AI company of Yaohan Fernandes in Mumbai, building production AI products and systems for real businesses.",
     body: "<h1>About SoldrinAI</h1><p>SoldrinAI is the studio of Yaohan Fernandes, building production AI products and systems for real businesses.</p>" },
   { path: "contact", title: "Contact · SoldrinAI", desc: "Contact SoldrinAI to build production AI for your business. Reach Yaohan Fernandes on LinkedIn, GitHub or WhatsApp.",
     body: "<h1>Contact SoldrinAI</h1><p>Reach Yaohan Fernandes on LinkedIn or GitHub.</p>" },
