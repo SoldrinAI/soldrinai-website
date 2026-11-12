@@ -67,7 +67,7 @@ function Footer() {
           <h4>Try it live</h4>
           {products.flatMap((p) => p.links.filter((l) => l.label === "Try it live").map((l) => <a key={p.slug} href={l.href} target="_blank" rel="noreferrer">{p.name}</a>))}
           <h4 className="gap">Open source</h4>
-          {products.flatMap((p) => p.links.filter((l) => l.label === "Source code").map((l) => <a key={p.slug} href={l.href} target="_blank" rel="noreferrer">{p.name}</a>))}
+          {products.filter((p) => p.links.some((l) => l.label === "Source code")).map((p) => <Link key={p.slug} to={`/products/${p.slug}`}>{p.name}</Link>)}
         </div>
         <div className="foot-col">
           <h4>What I build</h4>
