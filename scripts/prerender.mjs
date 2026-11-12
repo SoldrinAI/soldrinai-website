@@ -17,7 +17,7 @@ const org = {
   "@context": "https://schema.org",
   "@graph": [
     { "@type": "Organization", "@id": `${ORIGIN}/#org`, name: "SoldrinAI", alternateName: "Soldrin AI", url: `${ORIGIN}/`,
-      logo: `${ORIGIN}/favicon.svg`, description: DEFAULT_DESC,
+      logo: `${ORIGIN}/favicon-512.png`, description: DEFAULT_DESC,
       founder: { "@type": "Person", name: "Yaohan Fernandes" },
       address: { "@type": "PostalAddress", addressLocality: "Mumbai", addressRegion: "Maharashtra", addressCountry: "IN" },
       areaServed: "IN",
